@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {findDOMNode} from 'react-dom';
 import PropTypes from 'prop-types';
 import CommentList from './CommentList';
 import toggleOpen from '../decorators/toggleOpen';
@@ -27,7 +28,7 @@ class Article extends Component {
 
     setContainerRef = ref => {
         this.container = ref;
-        console.log('----', ref);
+        console.log('----', findDOMNode(ref));
     };
 
     getBody() {
@@ -36,7 +37,7 @@ class Article extends Component {
         return (
             <section>
                 {article.text}
-                <CommentList comments = {article.comments}/>
+                <CommentList comments = {article.comments} ref={this.setContainerRef}/>
             </section>
         )
     };
