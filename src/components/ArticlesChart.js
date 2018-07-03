@@ -25,3 +25,5 @@ class ArticlesChart extends Component {
          //do some cleanUp
     }
 }
+
+export default ArticlesChart;
