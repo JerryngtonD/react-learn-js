@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component, PureComponent} from 'react';
 import {findDOMNode} from 'react-dom';
 import PropTypes from 'prop-types';
 import CommentList from './CommentList';
 import toggleOpen from '../decorators/toggleOpen';
 
-class Article extends Component {
+class Article extends PureComponent {
     static propTypes = {
         article: PropTypes.shape({
             id: PropTypes.string.isRequired,
