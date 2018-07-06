@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Article from './Article';
+import accordion from "../decorators/accordion";
 
 class ArticleList extends Component {
 
@@ -27,3 +28,4 @@ class ArticleList extends Component {
     }
 }
 
+export default accordion(ArticleList);
