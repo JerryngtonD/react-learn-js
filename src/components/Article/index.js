@@ -1,8 +1,10 @@
 import React, {Component, PureComponent} from 'react';
 import {findDOMNode} from 'react-dom';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import CommentList from '../CommentList';
 import { CSSTransitionGroup } from 'react-transition-group'
+import {deleteArticle} from "../../AC";
 import './style.css';
 
 class Article extends PureComponent {
@@ -38,7 +40,8 @@ class Article extends PureComponent {
     };
 
     handleDelete = () => {
-        console.log('----', 'deleting article');
+        const {deleteArticle, article} = this.props;
+        deleteArticle(article.id);
     };
 
     setContainerRef = ref => {
@@ -58,4 +61,4 @@ class Article extends PureComponent {
     };
 }
 
-export default Article;
+export default connect(null , {deleteArticle})(Article);

@@ -6,8 +6,11 @@ export function increment() {
     }
 }
 
-export function deleteArticle () {
+export function deleteArticle (id) {
     return {
-        type: DELETE_ARTICLE
+        type: DELETE_ARTICLE,
+        payload: {
+            id
+        }
     }
 }
