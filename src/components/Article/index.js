@@ -24,6 +24,7 @@ class Article extends PureComponent {
                 <button onClick={toggleOpen}>
                     {isOpen ? 'close' : 'open'}
                 </button>
+                <button onClick = {this.handleDelete}>delete me</button>
                 <CSSTransitionGroup
                     transitionName = 'article'
                     transitionEnterTimeout = {300}
@@ -34,6 +35,10 @@ class Article extends PureComponent {
                 </CSSTransitionGroup>
             </div>
         );
+    };
+
+    handleDelete = () => {
+        console.log('----', 'deleting article');
     };
 
     setContainerRef = ref => {
