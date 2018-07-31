@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
 import Comment from './Comment';
+import PropTypes from 'prop-types'
+import CommentForm from './CommentForm'
 import toggleOpen from '../decorators/toggleOpen';
 
 class CommentList extends Component {
     static defaultProps = {
-        comments: []
+        comments: PropTypes.array,
+        //from toggleOpen decorator
+        isOpen: PropTypes.bool,
+        toggleOpen: PropTypes.func
     };
 
     render() {
@@ -24,11 +29,14 @@ class CommentList extends Component {
 
 
         return (
-            <ul>
-                {comments.map((id) => {
-                    return (<li key={id}><Comment id = {id}/></li>)
-                })}
-            </ul>
+            <div>
+                <ul>
+                    {comments.map((id) => {
+                        return (<li key={id}><Comment id = {id}/></li>)
+                    })}
+                </ul>
+                <CommentForm />
+            </div>
         )
     }
 }
