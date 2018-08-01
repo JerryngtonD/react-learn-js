@@ -6,5 +6,6 @@ export const CHANGE_DATE_RANGE = 'CHANGE_DATA_RANGE';
 
 export const CHANGE_SELECTION = 'CHANGE_SELECTION';
 
+export const ADD_COMMENT = 'ADD_COMMENT';
 
 

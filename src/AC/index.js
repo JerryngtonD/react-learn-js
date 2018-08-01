@@ -1,4 +1,4 @@
-import {DELETE_ARTICLE, INCREMENT, CHANGE_DATE_RANGE, CHANGE_SELECTION} from '../constants';
+import {DELETE_ARTICLE, INCREMENT, CHANGE_DATE_RANGE, CHANGE_SELECTION, ADD_COMMENT} from '../constants';
 
 export function increment() {
     return {
