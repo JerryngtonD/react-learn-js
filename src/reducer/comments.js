@@ -6,6 +6,9 @@ const commentsMap = arrToMap(defaultComments);
 
 export default (commentsState = commentsMap, action) => {
     const {type, payload, randomId} = action;
+    console.log(111111);
+
+    console.log(randomId);
     switch (type) {
         case ADD_COMMENT:
             return {

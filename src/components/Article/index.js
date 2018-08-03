@@ -18,6 +18,10 @@ class Article extends PureComponent {
         toggleOpen: PropTypes.func
     };
 
+    state = {
+        updateIndex: 0
+    };
+
     render() {
         const {article, isOpen, toggleOpen} = this.props;
         return (
@@ -55,7 +59,8 @@ class Article extends PureComponent {
         return (
             <section>
                 {article.text}
-                <CommentList comments = {article.comments} ref={this.setContainerRef}/>
+                <button onClick={() => this.setState({updateIndex: this.state.updateIndex + 1})}>update</button>
+                <CommentList article={article} ref={this.setContainerRef} key={this.state.updateIndex}/>
             </section>
         )
     };

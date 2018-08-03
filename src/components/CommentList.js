@@ -13,19 +13,27 @@ class CommentList extends Component {
     };
 
     render() {
+        const {article, isOpen} = this.props;
         const text = this.props.isOpen ? 'hide comments' : 'show comments';
         return (
             <div>
                 <button onClick={this.props.toggleOpen}>{text}</button>
-                {this.getBody()}
+                {this.getBody({article, isOpen})}
             </div>
         )
     }
 
-    getBody() {
-        const {comments, isOpen} = this.props;
+    getBody({article: {comments = [], id}, isOpen}) {
+        console.log(id);
         if (!isOpen) return null;
-        if (!comments.length) return <p>No comments yet</p>;
+        if (!comments.length) return (
+            <div>
+                <p>
+                    No comments yet
+                </p>
+                <CommentForm articleId={id}/>
+            </div>
+            );
 
 
         return (
@@ -35,7 +43,7 @@ class CommentList extends Component {
                         return (<li key={id}><Comment id = {id}/></li>)
                     })}
                 </ul>
-                <CommentForm />
+                <CommentForm articleId = {id}/>
             </div>
         )
     }
