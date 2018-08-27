@@ -1,8 +1,11 @@
 import {normalizedArticles as defaultArticles} from '../fixtures';
 import {arrToMap} from '../helpers';
 import {DELETE_ARTICLE, ADD_COMMENT, LOAD_ALL_ARTICLES} from "../constants";
+import {Map } from 'immutable';
 
-export default (articleState = {}, action) => {
+const defaultState = new Map({});
+
+export default (articleState = defaultState, action) => {
     const {type, payload, response, randomId} = action;
 
     switch (type) {
